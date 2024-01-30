@@ -6,11 +6,12 @@ $query_get_category = "select * from categories";
 $categories = mysqli_fetch_all(mysqli_query($con, $query_get_category)); //получаем результат запроса из переменной query_get_category
 // и преобразуем его в двумерный массив, где каждый элемент это массив с построчным получением кортежей из таблицы результата запроса
 
-$news = mysqli_query($con,"select * from news");
+$news = mysqli_query($con, "select * from news");
+include "header.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,61 +21,20 @@ $news = mysqli_query($con,"select * from news");
     <title>Админка</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="header">
-        <div class="header-div1">
-            <img src="images/menu.png" alt="">
-            <p>Разделы</p>
-        </div>
-        <hr class="hr1">
-        <div class="header-div2">
-            <img src="images/search.png" alt="">
-            <label for="">
-                <input type="search" name="" id="nav-search" placeholder="Поиск">
-            </label>
-        </div>
-        <div class="header-div3">
-            <img src="images/profile.png" alt="">
-            <a href="admin.php">Войти</a>
-        </div>
-    </div>
-    <hr class="hr2">
-    <div class="logo-date">
-        <div>
-            <h1>Администратор Пингвинсов</h1>
-        </div>
-        <div class="date-weather">
-            <p>Monday, January 1, 2018</p>
-            <div class="weather">
-                <img src="images/weather.png" alt="">
-                <p>- 23 °C</p>
-            </div>
-        </div>
-    </div>
-    <div class="section">
-    <?php
-        foreach($categories as $category){
-            echo "<li id='styleme'><a href = #>$category[1]</a></li>";
-        }
-        ?>
-    </div>
     <main>
         <section class="last-news">
-        <div class="container">
-        <?php
-            while ($new = mysqli_fetch_assoc($news)){
-                echo "<p id='newsp'>Новость" . " " . $new['news_id'] . "<br></p>";
-                echo "<div class='card'>";
-                echo "<h2 class='c_title'>" . $new['title'] . "</h2><br>";
-                echo "<br><p>" . $new['content'] . "</p>";
-                echo "<img id='img' src=images/news/".$new['image'].">";
-                echo "<p id='newsdate'>Дата публикации" . " " . $new['publish_date'] . "</p>";
-                echo "</div>";
-                
-            }
-        ?>
+            <div class="container">
+                <?php
+                while ($new = mysqli_fetch_assoc($news)) {
+                    $new_id = $new['news_id'];
+                    echo "<a id='newsp' href='oneNew.php?new=$new_id'>Новость: " . $new['title'] . "</a>";
+                }
+                ?>
         </section>
     </main>
     </div>
 </body>
+
 </html>
