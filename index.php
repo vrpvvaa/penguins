@@ -5,6 +5,7 @@ include "connect.php"; // выражение include включает и вып�
 
 $news = mysqli_query($con, "select * from news");
 include "header.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

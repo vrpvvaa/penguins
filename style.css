@@ -11,6 +11,7 @@
     margin-top: 15px;
     gap: 20px;
 }
+
 .header-div1 {
     display: flex;
     align-items: center;
@@ -18,11 +19,13 @@
     flex-direction: row;
     gap: 15px;
 }
+
 .hr1 {
     width: 1px;
     height: 50px;
     background-color: #D9DADB;
 }
+
 .header-div2 {
     display: flex;
     align-items: center;
@@ -31,6 +34,7 @@
     gap: 10px;
     margin-right: 60%;
 }
+
 .header-div3 {
     display: flex;
     align-items: center;
@@ -38,12 +42,14 @@
     flex-direction: row;
     gap: 10px;
 }
+
 .hr2 {
     margin: 0 auto;
     width: 1600px;
     height: 1px;
     background-color: #D9DADB;
 }
+
 .logo-date {
     display: flex;
     align-items: center;
@@ -51,6 +57,7 @@
     margin-left: 25%;
     margin-top: 1%;
 }
+
 .date-weather {
     margin-left: 10%;
     display: flex;
@@ -58,12 +65,14 @@
     justify-content: center;
     gap: 60px;
 }
+
 .weather {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
 }
+
 .section {
     background-color: #262D33;
     display: flex;
@@ -73,6 +82,7 @@
     margin-top: 30px;
     padding: 20px 0;
 }
+
 .section a {
     text-decoration: none;
     color: #D9DADB;
@@ -81,11 +91,11 @@
     transition: 0.3s;
 }
 
-#styleme{
+#styleme {
     list-style: none;
 }
 
-.section a:hover{
+.section a:hover {
     text-decoration: underline;
 }
 
@@ -94,6 +104,12 @@ input {
     color: #D9DADB;
     background-color: #5b6167;
     border-radius: 10px;
+}
+
+#userTitle{
+    width: 55%;
+    height: 8%;
+    padding: 2%;
 }
 
 select {
@@ -115,9 +131,8 @@ form {
     justify-content: center;
     background-color: #4B5157;
     border-radius: 20px;
-    width: 27%;
+    width: 450px;
     padding: 20px 0;
-    height: 420px;
 }
 
 #button {
@@ -138,17 +153,20 @@ label {
 }
 
 #text {
-    width: 30%;
+    width: 55%;
     height: 100px;
     background-color: #5b6167;
+    padding: 2%;
 }
-#peng{
+
+#peng {
     background-color: #5b6167;
     color: #D9DADB;
     margin-top: 0%;
     margin-bottom: 2%;
 }
-#nav-search{
+
+#nav-search {
     background-color: #fff;
     border-radius: 0%;
     display: flex;
@@ -157,17 +175,18 @@ label {
     font-weight: 400;
 }
 
-p{
+p {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
 }
-.logo-date h1{
+
+.logo-date h1 {
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
     font-size: 40px;
 }
 
-.header-div3 a{
+.header-div3 a {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
     text-decoration: none;
@@ -179,11 +198,12 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5%;
 }
 
 /* вывод новости */
 
-.container{
+.container {
     width: 80%;
     margin: 0 auto;
     display: flex;
@@ -192,7 +212,7 @@ main {
     align-items: center;
 }
 
-#img{
+#img {
     width: 500px;
     height: 500px;
     border-radius: 10px;
@@ -200,23 +220,28 @@ main {
     border: 15px solid #262D33;
 }
 
-.card{
+#img_ad {
+    width: 150px;
+    height: 150px;
+}
+
+.card {
     padding-top: 3%;
     padding-bottom: 3%;
     background-color: #262D33;
     border-radius: 10px;
-    width: 70%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #fff;
 }
 
-.cardd{
+.cardd {
     padding: 2%;
     background-color: #262D33;
     border-radius: 10px;
-    width: 80%;
+    width: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -224,48 +249,54 @@ main {
     color: #fff;
 }
 
-#newsp{
+#newsp {
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
     margin-top: 4%;
     margin-bottom: 2%;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
     color: #000;
     transition: 0.3s;
 }
 
-#newsp:hover{
+#newsp:hover {
     text-decoration: underline;
 }
 
-#newsdate{
+#newsdate {
     font-family: 'Raleway', sans-serif;
     font-weight: 800;
     margin-bottom: 2%;
 }
 
-.last-news{
+.last-news {
     display: flex;
     justify-content: space-around;
 }
 
-.card p{
+.card p {
     text-align: center;
     padding: 1%;
 }
 
+.col_1 {
+    display: flex;
+    flex-direction: column;
+    margin-right: 300px;
+    margin-top: 15px;
+}
 
-/* .container a{
-    width: 200%;
-    margin: 5%;
+.containerr {
+    display: flex;
+
+}
+
+#large_text {
     font-family: 'Raleway', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    text-decoration: none;
-    color: #000;
-    transition: 0.3s;
-} */
+    font-weight: 800;
+    font-size: 40px;
+}
 
 /* .container a:hover{
     text-decoration: underline;
