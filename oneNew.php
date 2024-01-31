@@ -6,6 +6,16 @@ include("header.php");
 $new_id = isset($_GET["new"]) ? intval($_GET["new"]) : false;
 $query_getNew = "SELECT news.*, categories.name FROM news INNER JOIN categories on news.category_id = categories.category_id where news_id = $new_id";
 $new = mysqli_fetch_assoc(mysqli_query($con, $query_getNew));
+
+
+$date = date("d.m.Y H:i", strtotime($new['publish_date']));
+
+$month = ["01"=>"Январь","02"=>"Февраль","03"=>"Март","04"=>"Апрель","05"=>"Май","06"=>"Июнь","07"=>"Июль","08"=>"Август",
+"09"=>"Сентябрь","10"=>"Октябрь","11"=>"Новябрь","12"=>"Декабрь"];
+
+$m_text = $month [substr ($date, 3, 2)];  
+
+$publish_date = substr($date,0,2)." ".$m_text." ".substr($date,6);
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +44,7 @@ $new = mysqli_fetch_assoc(mysqli_query($con, $query_getNew));
                 echo "<p>Категория: <b>" . $new['name'] . "</b></p>";
                 echo "<br><p>" . $new['content'] . "</p>";
                 echo "<img id='img' src=images/news/" . $new['image'] . ">";
-                echo "<p id='newsdate'>Дата публикации" . " " . $new['publish_date'] . "</p>";
+                echo "<p id='newsdate'>Дата публикации" . " " . $publish_date . "</p>";
                 echo "</div>";
                 ?>
             </div>
