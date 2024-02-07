@@ -1,8 +1,5 @@
 <?php
-include "connect.php"; // выражение include включает и выполняет указанный файл
 $query_get_category = "select * from categories";
-
-
 
 $categories = mysqli_fetch_all(mysqli_query($con, $query_get_category)); //получаем результат запроса из переменной query_get_category
 // и преобразуем его в двумерный массив, где каждый элемент это массив с построчным получением кортежей из таблицы результата запроса
@@ -22,14 +19,13 @@ $categories = mysqli_fetch_all(mysqli_query($con, $query_get_category)); //по�
         </div>
         <div class="header-div3">
             <img src="images/profile.png" alt="">
-            <a href="reg.php">Регистрация</a>
-            <a href="auth.php">Вход</a>
+            <a href="exit.php">Выйти из аккаунта</a>
         </div>
     </div>
     <hr class="hr2">
     <div class="logo-date">
         <div>
-            <a id="h1" href="index.php">Пингвинсы</a>
+            <h1>Пингвинсы</h1>
         </div>
         <div class="date-weather">
             <p>Monday, January 1, 2018</p>
@@ -42,7 +38,7 @@ $categories = mysqli_fetch_all(mysqli_query($con, $query_get_category)); //по�
     <div class="section">
     <?php
         foreach($categories as $category){
-            echo "<li id='styleme'><a href ='/?cat=".$category[0]."'".">$category[1]</a></li>";
+            echo "<li id='styleme'><a href = #>$category[1]</a></li>";
         }
         ?>
     </div>

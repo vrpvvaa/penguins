@@ -1,9 +1,10 @@
 <?php
 include "connect.php"; // выражение include включает и выполняет указанный файл
 
+$id_cat = isset($_GET['cat']) ? ($_GET['cat']) : false;
 
+$news = mysqli_query($con, "select * from news where category_id = '$id_cat'");
 
-$news = mysqli_query($con, "select * from news");
 include "header.php";
 
 ?>
@@ -31,6 +32,7 @@ include "header.php";
                     // echo "<p id='newsp'>Новость" . " " . $new['news_id'] . "<br></p>";
                     echo "<div class='card'>";
                     echo "<h2 class='c_title'>" . $new['title'] . "</h2><br>";
+                    // echo "<p>Категория: <b>" . $new['name'] . "</b></p>";
                     echo "<br><p>" . $new['content'] . "</p>";
                     echo "<img id='img' src=images/news/" . $new['image'] . ">";
                     echo "<p id='newsdate'>Дата публикации" . " " . $new['publish_date'] . "</p>";

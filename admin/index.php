@@ -1,6 +1,6 @@
 <?php
 include "../connect.php"; // выражение include включает и выполняет указанный файл
-include "../header.php";
+include "../header-reg.php";
 
 $query_get_category = "select * from categories";
 
@@ -13,6 +13,7 @@ $id_new = isset($_GET["new"])? $_GET["new"] :false;
 
 if($id_new) $new_info = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM news WHERE news_id = $id_new"));
 // var_dump($id_new?$new['title']:"");
+$UserID = $_COOKIE['user'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,17 +30,23 @@ if($id_new) $new_info = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM new
 
 <body>
     <main>
+    <?php
+    echo "<h2 id='welcome_line'>" . 'Добро Пожаловать, ' . $UserID . "</h2>";
+    ?>
     <h1 id="large_text">Панель администратора</h1>
         <section class="last-news">
             <div class="containerr">
                 <div class="col_1">
                 <h1>Список новостей</h1>
+                <div class="news_line">
                     <?php
                     while ($new = mysqli_fetch_assoc($news)) {
                         $new_id = $new['news_id'];
-                        echo "<a id='newsp' href='?new=$new_id'>Новость: " . $new['title'] . "</a>";
+                        echo "<a id='newsp' href='?new=$new_id'>Новость: " . $new['title'] . "</a>"."<a href='deleteNew.php?new=$new_id'>".
+                        "<img id='trashimg' src='/images/trash.png' alt='Удалить'>" . "</a>" . "<br>". "<br>";
                     }
                     ?>
+                    </div>
                     <a href="/admin"><img src="/images/plus.png" alt="Добавить новость"></a>
                 </div>
                 <div class="col_2">
@@ -76,6 +83,7 @@ if($id_new) $new_info = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM new
                             <br>
 
                             <input id="button" type="submit" value="Сохранить">
+                            
 
                         </form>
                     </main>
